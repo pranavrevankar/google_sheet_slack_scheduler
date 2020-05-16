@@ -19,19 +19,16 @@ function myFunction(){
 //Function to send message to slack through a Slack App. 
 //You will need to create a Slack app first
 function sendMessage(input) {
-
   var url = "https://slack.com/api/chat.postMessage";
   var payload =
       {
-        "channel" : "channel_id",
+        "channel" : "channel_id", //ID of the Slack channel where message should be posted
         "text" : input,
       };
-  
   var header = 
       {
-        "Authorization" : "Bearer xoxp-app-token",
+        "Authorization" : "Bearer xoxp-app-token", //OAuth Access Token
       };
-  
   var options =
       {
         "method"  : "POST",
@@ -39,6 +36,5 @@ function sendMessage(input) {
         "headers" : header,        
         "payload" : JSON.stringify(payload),
       };
-
   var result = UrlFetchApp.fetch(url, options);
  }
